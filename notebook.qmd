@@ -1,0 +1,54 @@
+
+Rationales/Tasks
+==========
+- Improve model performance *within* a model/task.
+- Learn reference embeddings for other, possibly unknown or unspecified, tasks
+- Interpretation, especially visualization
+
+
+Big questions
+=============
+- What are the current best practices for learning entity embeddings outside of NLP and RecSys?
+    - What tasks to use?
+    - What if there isn't a natural sequence?
+    - 
+
+- What kinds of features does it make sense to learn embeddings for?
+    - Something about things where we know distances are meaningful but it's hard to define them explicitly?
+
+
+Potential examples
+=========
+Tabular:
+- Predict house prices
+
+Sequential:
+- Operating system traces
+
+
+Reading list
+=========
+- [x] Guo and Berkahn
+- [ ] Vicki Boykis monograph
+
+Good blog posts on the topic? What Claude suggested?
+- Uber, etc?
+
+
+
+Reading notes
+=======
+
+
+Uncategorized
+=======
+
+2025-03-27
+----------
+
+Various perspectives/lens/lines of thought:
+- Borrow from original word embeddings, e.g. word2vec
+- Borrow from more recent word embedding work, e.g. BERT and its descendants
+- RecSys: latent features from neural matrix factorization
+- Manifold-learning, metric learning, dimension reduction for visualization, e.g. tSNE, UMAP
+- Tabular neural nets
