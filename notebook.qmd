@@ -11,7 +11,9 @@ Big questions
 - What are the current best practices for learning entity embeddings outside of NLP and RecSys?
     - What tasks to use?
     - What if there isn't a natural sequence?
-    - 
+    - Is it better to learn
+
+- How would contrastive learning work for learning embeddings?
 
 - What kinds of features does it make sense to learn embeddings for?
     - Something about things where we know distances are meaningful but it's hard to define them explicitly?
