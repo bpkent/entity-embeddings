@@ -1,4 +1,11 @@
 
+Why I care
+==========
+- Tabular data *still* the most common setting for industry ML teams.
+- Gradient boosted trees are *still* the most common way to tackle tabular regression
+and classification tasks.
+
+
 Rationales/Tasks
 ==========
 - Improve model performance *within* a model/task.
@@ -16,13 +23,15 @@ Big questions
 - How would contrastive learning work for learning embeddings?
 
 - What kinds of features does it make sense to learn embeddings for?
-    - Something about things where we know distances are meaningful but it's hard to define them explicitly?
+    - Something about things where we know distances are meaningful but it's hard to
+    define them explicitly?
 
 
 Potential examples
 =========
 Tabular:
 - Predict house prices
+- Kaggle-Rossmann store sales: reproduce the results of the Guo-Berkhahn paper
 
 Sequential:
 - Operating system traces
@@ -30,20 +39,55 @@ Sequential:
 
 Reading list
 =========
-- [x] Guo and Berkahn
+- [x] Guo and Berkhahn
 - [ ] Vicki Boykis monograph
 
 Good blog posts on the topic? What Claude suggested?
 - Uber, etc?
 
 
-
 Reading notes
 =======
 
+[Guo & Berkhahn - Entity Embeddings](https://arxiv.org/abs/1604.06737)
+------
+- Use their standard regression task to train the embeddings, i.e. predict Rossmann
+store sales. No special tasks just for the purpose of learning transferrable embeddings.
 
-Uncategorized
+- Entity embedding task definition: map discrete values of a categorical variable to a
+metric space such that values with a similar regression or classification output are
+similar in the metric space.
+    - This seems to restrictive, or at least that it doesn't take other features into
+    account.
+    - But it does align with the Bengio-style distributional hypothesis.
+
+- Embeddings are a "distributed representation."
+    - Presumably this means distribution probability mass around the point mass that
+    would be a 1-hot vector.
+
+- Average predictions from 5 neural nets, presumably from different random seeds or at
+least initializations.
+
+- A priori motivation for entity embeddings:
+    - 1-hot vectors use way too much memory (just to hold mostly 0's)
+    - 1-hot vectors are slow.
+    - Distributional hypothesis: spreading out the probability mass helps the model to
+    generalize, especially when data is sparse and out-of-distribution situations like
+    (realistic) temporal train/test splits.
+    - Allow us to use NN's, which can't handle discrete values otherwise.
+
+- Results-based motivation for entity embeddings:
+    - Better performance within NN's, at least on the realistic temporal train/test split.
+    - *Other* kinds of models do better when given the NN embeddings.
+
+Uncategorized notes
 =======
+
+2025-03-28
+----------
+- Need to use the keywords "distributional hypothesis" and "distributed representation".
+- Connection to the ELMo line in NLP -- learn context embeddings that go into *other*
+task-specific models.
 
 2025-03-27
 ----------
@@ -54,3 +98,4 @@ Various perspectives/lens/lines of thought:
 - RecSys: latent features from neural matrix factorization
 - Manifold-learning, metric learning, dimension reduction for visualization, e.g. tSNE, UMAP
 - Tabular neural nets
+ 
